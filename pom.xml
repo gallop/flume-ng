@@ -63,6 +63,7 @@ limitations under the License.
     <commons-lang.version>${cdh.commons-lang.version}</commons-lang.version>
     <curator.version>2.12.0</curator.version>
     <derby.version>10.14.1.0</derby.version>
+    <elasticsearch.version>7.10.1</elasticsearch.version>
     <fasterxml.jackson.version>${cdh.jackson2.version}</fasterxml.jackson.version>
     <fest-reflect.version>1.4</fest-reflect.version>
     <geronimo-jms.version>1.1.1</geronimo-jms.version>
@@ -454,6 +455,21 @@ limitations under the License.
   </organization>
 
   <repositories>
+   <!-- <repository>
+      <id>Kunpeng.repo</id>
+      <url>https://mirrors.huaweicloud.com/kunpeng/maven/</url>
+      <name>Kunpeng Repositories</name>
+    </repository>-->
+    <repository>
+      <id>huaweicloud.repo</id>
+      <name>HuaweiCloud Repositories</name>
+      <url>https://mirrors.huaweicloud.com/repository/maven</url>
+    </repository>
+    <repository>
+      <id>wso2.repo</id>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <name>wso2 Repositories</name>
+    </repository>
      <repository>
       <id>cdh.repo</id>
       <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
@@ -1073,8 +1089,20 @@ limitations under the License.
       <!-- Adding zookeeper as dependency, beacuse it was
            pulling different version of zookeeper as transient
            dependency from asynchbase. -->
+      <dependency>
+        <groupId>org.elasticsearch</groupId>
+        <artifactId>elasticsearch</artifactId>
+        <version>${elasticsearch.version}</version>
+        <optional>true</optional>
+      </dependency>
 
-
+      <dependency>
+        <groupId>org.elasticsearch</groupId>
+        <artifactId>elasticsearch</artifactId>
+        <version>${elasticsearch.version}</version>
+        <classifier>tests</classifier>
+        <scope>test</scope>
+      </dependency>
 
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
